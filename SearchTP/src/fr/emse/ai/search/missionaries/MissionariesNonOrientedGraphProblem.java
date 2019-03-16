@@ -7,8 +7,8 @@ import java.util.Collection;
 
 public class MissionariesNonOrientedGraphProblem implements Problem {
 
-    MissionariesState initialState = new MissionariesState(MissionariesState.TTL);
-    MissionariesState finalState = new MissionariesState(MissionariesState.ZZR);
+    MissionariesState initialState = new MissionariesState("3 3 L");
+    MissionariesState finalState = new MissionariesState("0 0 R");
 
     @Override
     public Object getInitialState() {
@@ -87,39 +87,7 @@ public class MissionariesNonOrientedGraphProblem implements Problem {
 
     @Override
     public Object getNextState(Object state, Object action) {
-        if (action.equals("0 0 L")) return new MissionariesState(MissionariesState.ZZL);
-        if (action.equals("1 1 L")) return new MissionariesState(MissionariesState.UUL);
-        if (action.equals("2 2 L")) return new MissionariesState(MissionariesState.DDL);
-        if (action.equals("3 3 L")) return new MissionariesState(MissionariesState.TTL);
-        if (action.equals("1 0 L")) return new MissionariesState(MissionariesState.UZL);
-        if (action.equals("2 0 L")) return new MissionariesState(MissionariesState.DZL);
-        if (action.equals("3 0 L")) return new MissionariesState(MissionariesState.TZL);
-        if (action.equals("1 2 L")) return new MissionariesState(MissionariesState.UDL);
-        if (action.equals("1 3 L")) return new MissionariesState(MissionariesState.UTL);
-        if (action.equals("2 1 L")) return new MissionariesState(MissionariesState.DUL);
-        if (action.equals("2 3 L")) return new MissionariesState(MissionariesState.DTL);
-        if (action.equals("3 1 L")) return new MissionariesState(MissionariesState.TUL);
-        if (action.equals("3 2 L")) return new MissionariesState(MissionariesState.TDL);
-        if (action.equals("0 1 L")) return new MissionariesState(MissionariesState.ZUL);
-        if (action.equals("0 2 L")) return new MissionariesState(MissionariesState.ZDL);
-        if (action.equals("0 3 L")) return new MissionariesState(MissionariesState.ZTL);
-        if (action.equals("0 0 R")) return new MissionariesState(MissionariesState.ZZR);
-        if (action.equals("1 1 R")) return new MissionariesState(MissionariesState.UUR);
-        if (action.equals("2 2 R")) return new MissionariesState(MissionariesState.DDR);
-        if (action.equals("3 3 R")) return new MissionariesState(MissionariesState.TTR);
-        if (action.equals("1 0 R")) return new MissionariesState(MissionariesState.UZR);
-        if (action.equals("2 0 R")) return new MissionariesState(MissionariesState.DZR);
-        if (action.equals("3 0 R")) return new MissionariesState(MissionariesState.TZR);
-        if (action.equals("1 2 R")) return new MissionariesState(MissionariesState.UDR);
-        if (action.equals("1 3 R")) return new MissionariesState(MissionariesState.UTR);
-        if (action.equals("2 1 R")) return new MissionariesState(MissionariesState.DUR);
-        if (action.equals("2 3 R")) return new MissionariesState(MissionariesState.DTR);
-        if (action.equals("3 1 R")) return new MissionariesState(MissionariesState.TUR);
-        if (action.equals("3 2 R")) return new MissionariesState(MissionariesState.TDR);
-        if (action.equals("0 1 R")) return new MissionariesState(MissionariesState.ZUR);
-        if (action.equals("0 2 R")) return new MissionariesState(MissionariesState.ZDR);
-        if (action.equals("0 3 R")) return new MissionariesState(MissionariesState.ZTR);
-        return null;
+        return new MissionariesState((String) action);
     }
     @Override
     public double getStepCost(Object start, Object action, Object dest) {
