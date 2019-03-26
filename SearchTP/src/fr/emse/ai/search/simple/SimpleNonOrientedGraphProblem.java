@@ -5,6 +5,9 @@ import fr.emse.ai.search.core.Problem;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * Classe qui représente le problème des villes non orientées
+ */
 public class SimpleNonOrientedGraphProblem implements Problem {
 
     SimpleState initialState = new SimpleState(SimpleState.A);
@@ -71,5 +74,10 @@ public class SimpleNonOrientedGraphProblem implements Problem {
     @Override
     public double getStepCost(Object start, Object action, Object dest) {
         return 1;
+    }
+
+    @Override
+    public double heuristicCalcul(Object node) {
+        return 0;
     }
 }

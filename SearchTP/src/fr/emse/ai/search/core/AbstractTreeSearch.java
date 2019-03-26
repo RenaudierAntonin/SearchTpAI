@@ -11,7 +11,10 @@ import java.util.Collection;
  */
 public abstract class AbstractTreeSearch implements Search {
 
-    Collection<Node> frontier;
+    /**
+     * Collection des noeuds à visiter
+     */
+    private Collection<Node> frontier;
 
     public Node solve(Problem problem) {
         // initialize fringe

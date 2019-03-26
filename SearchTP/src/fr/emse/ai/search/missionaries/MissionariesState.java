@@ -1,7 +1,9 @@
 package fr.emse.ai.search.missionaries;
 
+/**
+ * Classe qui gère les états du problème des missionaires
+ */
 public class MissionariesState {
-
 
     public String value;
 

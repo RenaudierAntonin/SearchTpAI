@@ -1,7 +1,9 @@
 package fr.emse.ai.search.farmer;
 
+/**
+ * Classe qui gère les états du problème du fermier
+ */
 public class FarmerState {
-
 
     public String value;
 

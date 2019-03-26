@@ -42,6 +42,8 @@ public class Node {
     // the initial state to the node, as indicated by the parent pointers.
     private double pathCost;
 
+    private double heuristic;
+
     /**
      * Constructs a node with the specified state.
      *
@@ -69,6 +71,23 @@ public class Node {
         this.parent = parent;
         this.action = action;
         this.pathCost = parent.pathCost + stepCost;
+    }
+
+    /**
+     * Constructeur d'un noeud en spécifiant son état, son parent, son action, son cout et son heuristique
+     * @param state Etat du noeud
+     * @param parent Parent du noeud
+     * @param action Action que représente le noeud
+     * @param stepCost Cout d'un noeud en fonction de celui de ses parents
+     * @param heuristic Heuristique du noeud en fonction de son cout et de sa proximité par rapport à l'état final
+     */
+    public Node(Object state, Node parent, Object action, double stepCost, double heuristic) {
+        this(state);
+        this.parent = parent;
+        this.action = action;
+        this.pathCost = parent.pathCost + stepCost;
+        //L'heuristque d'un noeud dépend de sa proximité à l'état final mais aussi de son cout
+        this.heuristic = heuristic + this.pathCost;
     }
 
     /**
@@ -149,5 +168,9 @@ public class Node {
             System.out.println("State  : " + nodes.get(i).getState());
         }
         return s;
+    }
+
+    public double getHeuristic() {
+        return this.heuristic;
     }
 }

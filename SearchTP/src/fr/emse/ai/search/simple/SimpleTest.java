@@ -5,6 +5,9 @@ import fr.emse.ai.search.solver.BreadthFirstTreeSearch;
 import fr.emse.ai.search.solver.DepthFirstGraphSearch;
 import fr.emse.ai.search.solver.DepthFirstTreeSearch;
 
+/**
+ * Classe qui permet de tester la résolution du problème des villes
+ */
 public class SimpleTest {
 
     public static void main(String[] args) {

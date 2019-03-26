@@ -1,12 +1,17 @@
 package fr.emse.ai.search.cans;
 
-import fr.emse.ai.search.solver.BreadthFirstTreeSearch;
+import fr.emse.ai.search.solver.DepthFirstGraphSearch;
 
+/**
+ * Classe qui permet de tester la résolution du problème des récipients
+ */
 public class CansTest {
+
     public static void main(String[] args){
-        CansOrientedGraphProblem p1 = new CansOrientedGraphProblem(15,5);
-        System.out.println("Solution to problem using breadth first");
-        System.out.println(new BreadthFirstTreeSearch().solve(p1).pathToString());
+
+        CansNonOrientedGraphProblem p1 = new CansNonOrientedGraphProblem(15,5);
+        System.out.println("Solution to problem using depth first");
+        System.out.println(new DepthFirstGraphSearch().solve(p1).pathToString());
     }
 
 }

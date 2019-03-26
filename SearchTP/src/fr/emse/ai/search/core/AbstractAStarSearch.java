@@ -1,14 +1,12 @@
 package fr.emse.ai.search.core;
 
-import fr.emse.ai.search.simple.SimpleState;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Classe abstraite qui implémente un parcours dans un graph
+ * Classe abstraite qui implémente un parcours A* dans un graph
  */
-public abstract class AbstractGraphSearch implements Search{
+public abstract class AbstractAStarSearch implements Search{
 
     /**
      * Collection des noeuds à visiter
@@ -20,7 +18,7 @@ public abstract class AbstractGraphSearch implements Search{
      * @param problem Problème à résoudre
      * @return Retourne la solution au problème
      */
-    public Node solve(Problem problem) {
+    public  Node solve(Problem problem) {
         // Initialisation de la frontière
         System.out.println("Solving...");
         frontier = initFrontier();
@@ -68,7 +66,12 @@ public abstract class AbstractGraphSearch implements Search{
         Collection<Object> actions = problem.getActions(node.getState());
         for (Object action : actions) {
             Object next = problem.getNextState(node.getState(), action);
-            nodes.add(new Node(next, node, action, problem.getStepCost(node.getState(), action, next)));
+            //On calcule l'heuristique d'un prochain noeud
+            //La méthode de calcul est définie dans l'interface Problem
+            double heuristic = problem.heuristicCalcul(next);
+            //On crée le nouveau noeud avec toutes les informatiosn nécessaires
+            //Cf la classe Node pour voir le nouveau constructeur
+            nodes.add(new Node(next, node, action, problem.getStepCost(node.getState(), action, next),heuristic));
         }
         return nodes;
     }

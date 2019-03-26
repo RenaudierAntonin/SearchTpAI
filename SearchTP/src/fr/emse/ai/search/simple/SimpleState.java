@@ -1,5 +1,8 @@
 package fr.emse.ai.search.simple;
 
+/**
+ * Classe qui gère les états du problème des villes
+ */
 public class SimpleState {
 
     public final static String A = "A";
